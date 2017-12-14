@@ -1,0 +1,36 @@
+{
+	"short_name": "Anytizer",
+	"name": "Anytizer's Open Sourced Projects",
+	"start_url": "index.html?launcher=true",
+	"background_color": "#5042F4",
+	"display": "standalone",
+	"orientation": "portrait",
+	"theme_color": "#5042F4",
+	"icons": [
+		{
+			"src": "images/launcher-icon-1x.png",
+			"type": "image/png",
+			"sizes": "48x48"
+		},
+		{
+			"src": "images/launcher-icon-2x.png",
+			"type": "image/png",
+			"sizes": "96x96"
+		},
+		{
+			"src": "images/launcher-icon-4x.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "images/launcher-icon-5x.png",
+			"type": "image/png",
+			"sizes": "256x256"
+		},
+		{
+			"src": "images/launcher-icon-10x.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	]
+}
