@@ -1,13 +1,17 @@
 var projectsApp = angular.module("projectsApp", ["ngSanitize"]);
 
-projectsApp.controller("HeaderController", function($rootScope, $scope){
+projectsApp.controller("HeaderController", function($window, $rootScope, $scope){
 	/**
 	 * Did the visitor understand the project limitations?
 	 */
-	$scope.understood = false;
+	$scope.u = false;
+	$scope.understood = function(d){
+		$scope.u = d==true;
+		$window.scrollTo(0, 0);
+	}
 
-	$rootScope.$broadcast("ConstraintsUnderstood", $scope.understood);
-	$scope.$emit("ConstraintsUnderstood", $scope.understood);
+	$rootScope.$broadcast("ConstraintsUnderstood", $scope.u);
+	$scope.$emit("ConstraintsUnderstood", $scope.u);
 });
 
 /**
@@ -34,12 +38,12 @@ projectsApp.controller("ProjectsController", function($scope, $http) {
         method : "GET",
         url : "projects.json"
     }).then(function(response) {
-        $scope.projects = response.data;
+        var projects = response.data;
         /**
          * Description could be a very complex HTML to handwrite within json.
          * Fetches descriptions externally
          */
-        angular.forEach($scope.projects, function(project, key){
+        angular.forEach(projects, function(project, key){
             $http({
                 method : "GET",
                 url : project.links.desc
@@ -49,7 +53,8 @@ projectsApp.controller("ProjectsController", function($scope, $http) {
                 // error
                 project.description = "Description not found.";
             });
-        }, null);
+		}, null);
+		$scope.projects = projects;
     }, function(response) {
         // error
     });
@@ -60,7 +65,8 @@ projectsApp.controller("ProjectsController", function($scope, $http) {
  */
 projectsApp.run(function($rootScope, $anchorScroll){
     $rootScope.$on("$locationChangeSuccess", function(){
-        $anchorScroll();
+		//$anchorScroll();
+		window.scrollTo(0, 0);
     });
 });
 
