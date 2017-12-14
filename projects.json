@@ -3,6 +3,7 @@
     "name": "Gallery.HTML",
     "description": "",
     "complete": false,
+    "show": false,
     "tags": ["html", "css", "mobile"],
     "links": {
       "desc": "projects/gallery.html/desc.html",
@@ -18,6 +19,7 @@
     "name": "cropnail.php",
     "description": "",
     "complete": true,
+    "show": true,
     "tags": ["cli", "php", "gd"],
     "links": {
       "desc": "projects/cropnail.php/desc.html",
@@ -33,6 +35,7 @@
     "name": "APIUnit.phpunit",
     "description": "",
     "complete": true,
+    "show": true,
     "tags": ["phpunit", "api", "unit testing"],
     "links": {
       "desc": "projects/apiunit.phpunit/desc.html",
@@ -48,6 +51,7 @@
     "name": "DTO.php",
     "description": "",
     "complete": false,
+    "show": true,
     "tags": ["mysql", "php", "code generation", "CRUD"],
     "links": {
       "desc": "projects/dto.php/desc.html",
@@ -63,6 +67,7 @@
     "name": "pluralizer.php",
     "description": "",
     "complete": true,
+    "show": true,
     "tags": ["php", "grammar"],
     "links": {
       "desc": "projects/pluralizer.php/desc.html",
@@ -78,6 +83,7 @@
     "name": "capitalizer.php",
     "description": "",
     "complete": true,
+    "show": true,
     "tags": ["php", "grammar"],
     "links": {
       "desc": "projects/capitalizer.php/desc.html",
@@ -93,6 +99,7 @@
     "name": "Hosted Content Importer (HCI)",
     "description": "",
     "complete": true,
+    "show": true,
     "tags": ["wordpress", "plugin", "content embed"],
     "links": {
       "desc": "projects/hosted-content-importer.wp/desc.html",
@@ -108,6 +115,7 @@
     "name": "phpinfo.wp",
     "description": "",
     "complete": true,
+    "show": true,
     "tags": ["wordpress", "phpinfo"],
     "links": {
       "desc": "projects/phpinfo.wp/desc.html",
@@ -123,6 +131,7 @@
     "name": "anytizer.net",
     "description": "",
     "complete": true,
+    "show": true,
     "tags": ["c#", "input", "validation"],
     "links": {
       "desc": "projects/anytizer.net/desc.html",

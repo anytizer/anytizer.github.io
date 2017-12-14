@@ -42,7 +42,7 @@
         </div>
     </div>
     <div class="w3-white w3-padding" ng-controller="ProjectsController" ng-show="u">
-        <div class="w3-card" ng-repeat="project in projects">
+        <div class="w3-card" ng-repeat="project in projects" ng-show="project.show">
             <h2 class="w3-black w3-padding">{{project.name}}</h2>
             <div class="description w3-padding" ng-bind-html="project.description"></div>
             <div ng-show="project.tags.length>=1">
