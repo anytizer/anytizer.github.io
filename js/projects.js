@@ -1,12 +1,26 @@
 var projectsApp = angular.module("projectsApp", ["ngSanitize"]);
 
-projectsApp.controller("HeaderController", function($window, $rootScope, $scope){
+projectsApp.service("understood", function() {
+	var item = "understood";
+	return {
+		"read": function(item){
+			data = localStorage.getItem(item);
+			return data;
+		},
+		"save": function(item, value){
+			localStorage.setItem(item, value);
+			return value;
+		},
+	};
+});
+
+projectsApp.controller("HeaderController", function($window, $rootScope, $scope, understood){
 	/**
 	 * Did the visitor understand the project limitations?
 	 */
-	$scope.u = false;
+	$scope.u = understood.read("understood") == true || understood.read("understood") == "true"; // @todo Read from persisting data
 	$scope.understood = function(d){
-		$scope.u = d==true;
+		$scope.u = understood.save("understood", d==true);
 		$window.scrollTo(0, 0);
 	}
 
@@ -18,6 +32,10 @@ projectsApp.controller("HeaderController", function($window, $rootScope, $scope)
  * @todo: Read HTML descriptions from file
  */
 projectsApp.controller("ProjectsController", function($scope, $http) {
+	$scope.$on("ConstraintsUnderstood", function(event, data) {
+		$scope.u = data;
+	});
+	
 	/**
 	 * @todo If small devices detected: restrict the menus
 	 */
