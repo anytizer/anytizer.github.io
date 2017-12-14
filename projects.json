@@ -26,7 +26,7 @@
       "download": "",
       "buy": "",
       "donate": "",
-      "learn": ""
+      "learn": "https://github.com/anytizer/anytizer.net/blob/master/readme.md"
     }
   },
   {
@@ -98,10 +98,10 @@
       "desc": "projects/hosted-content-importer.wp/desc.html",
       "source": "https://github.com/anytizer/hosted-content-importer.wp/",
       "demo": "",
-      "download": "https://wordpress.org/plugins/hosted-content-importer/",
+      "download": "https://downloads.wordpress.org/plugin/hosted-content-importer.zip",
       "buy": "",
       "donate": "",
-      "learn": ""
+      "learn": "https://wordpress.org/plugins/hosted-content-importer/"
     }
   },
   {
@@ -113,10 +113,10 @@
       "desc": "projects/phpinfo.wp/desc.html",
       "source": "https://github.com/anytizer/phpinfo.wp/",
       "demo": "",
-      "download": "https://wordpress.org/plugins/php-info-wp/",
+      "download": "https://downloads.wordpress.org/plugin/php-info-wp.zip",
       "buy": "",
       "donate": "",
-      "learn": ""
+      "learn": "https://wordpress.org/plugins/php-info-wp/"
     }
   },
   {
@@ -131,7 +131,7 @@
       "download": "",
       "buy": "",
       "donate": "",
-      "learn": ""
+      "learn": "https://github.com/anytizer/anytizer.net/blob/master/readme.md"
     }
   }
 ]
