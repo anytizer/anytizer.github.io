@@ -78,6 +78,58 @@ projectsApp.controller("ProjectsController", function($scope, $http) {
 				"learn": "",
 			},
 		},
+		{
+			"name": "pluralizer.php",
+			"description": "",
+			"completed": false,
+			"links": {
+				"desc": "projects/pluralizer.php/desc.html",
+				"source": "https://github.com/anytizer/pluralizer.php/",
+				"demo": "",
+				"buy": "",
+				"donate": "",
+				"learn": "",
+			},
+		},
+		{
+			"name": "capitalizer.php",
+			"description": "",
+			"completed": false,
+			"links": {
+				"desc": "projects/capitalizer.php/desc.html",
+				"source": "https://github.com/anytizer/capitalizer.php/",
+				"demo": "",
+				"buy": "",
+				"donate": "",
+				"learn": "",
+			},
+		},
+		{
+			"name": "Hosted Content Importer",
+			"description": "",
+			"completed": false,
+			"links": {
+				"desc": "projects/hosted-content-importer.wp/desc.html",
+				"source": "https://github.com/anytizer/hosted-content-importer.wp/",
+				"demo": "",
+				"buy": "",
+				"donate": "",
+				"learn": "",
+			},
+		},
+		{
+			"name": "phpinfo.wp",
+			"description": "",
+			"completed": false,
+			"links": {
+				"desc": "projects/phpinfo.wp/desc.html",
+				"source": "https://github.com/anytizer/phpinfo.wp/",
+				"demo": "",
+				"buy": "",
+				"donate": "",
+				"learn": "",
+			},
+		},
 	];
 	
 	/**
