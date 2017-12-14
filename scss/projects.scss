@@ -6,13 +6,35 @@
     outline: none;
 }
 
+/**
+ * 540px @dpr 1 can fit in 360px mobile display @dpr 1.5.
+ */
+$max-width: 540px;
+
 .wrapper
 {
-    /**
-     * 540px @dpr 1 can fit in 360px mobile display @dpr 1.5.
-     */
-    max-width: 540px;
     margin: 0 auto;
+    max-width: $max-width;
+
+    /**
+     * Do NOT define it - to prevent horizontal scrolling on small devices
+     * width: $max-width;
+     */
+    
+    /**
+     * To adjust the height of the H1 used to staty on top
+     */
+    padding-top: 60px;
+
+    h1
+    {
+        top: -20px;
+        z-index: 99999;
+        position: fixed;
+        overflow: hidden;
+        width: $max-width;
+        border-bottom: 4px solid hsl(54, 100%, 50%);
+    }
 }
 
 img.icon
@@ -25,8 +47,8 @@ img.icon
     
     background-color: #CCCCCC;
     border: 2px solid #666666;
+    padding: 4px;
     margin: 0;
-    padding: 4px;    
 }
 
 .description

@@ -1,1 +1,0 @@
-The demo page to host Gallery.HTML.

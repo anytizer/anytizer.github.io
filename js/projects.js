@@ -1,10 +1,13 @@
 var projectsApp = angular.module("projectsApp", ["ngSanitize"]);
 
-projectsApp.controller("HeaderController", function($scope){
+projectsApp.controller("HeaderController", function($rootScope, $scope){
 	/**
 	 * Did the visitor understand the project limitations?
 	 */
 	$scope.understood = false;
+
+	$rootScope.$broadcast("ConstraintsUnderstood", $scope.understood);
+	$scope.$emit("ConstraintsUnderstood", $scope.understood);
 });
 
 /**
@@ -12,141 +15,44 @@ projectsApp.controller("HeaderController", function($scope){
  */
 projectsApp.controller("ProjectsController", function($scope, $http) {
 	/**
-	 * @todo If small devices detected, restrict
+	 * @todo If small devices detected: restrict the menus
 	 */
 	$scope.show = {
 		"source": true,
 		"demo": true,
+		"download": true,
 		"buy": true,
 		"donate": true,
-		"learn": true,
+		"learn": true
 	};
 	
 	/**
 	 * List of useful projects
 	 */
-    $scope.projects = [
-		{
-			"name": "Gallery.HTML",
-			"description": "",
-			"completed": false,
-			"links": {
-				"desc": "projects/gallery.html/desc.html",
-				"source": "https://github.com/anytizer/gallery.html/",
-				"demo": "https://anytizer.github.io/demo/gallery.html/",
-				"buy": "",
-				"donate": "",
-				"learn": "",
-			},
-		},
-		{
-			"name": "Cropnail.php",
-			"description": "",
-			"completed": true,
-			"links": {
-				"desc": "projects/cropnail.php/desc.html",
-				"source": "https://github.com/anytizer/cropnail.php/",
-				"demo": "",
-				"buy": "",
-				"donate": "",
-				"learn": "",
-			},
-		},
-		{
-			"name": "APIUnit.phpunit",
-			"description": "",
-			"completed": true,
-			"links": {
-				"desc": "projects/apiunit.phpunit/desc.html",
-				"source": "https://github.com/anytizer/apiunit.phpunit/",
-				"demo": "",
-				"buy": "",
-				"donate": "",
-				"learn": "",
-			},
-		},
-		{
-			"name": "DTO.php",
-			"description": "",
-			"completed": false,
-			"links": {
-				"desc": "projects/dto.php/desc.html",
-				"source": "https://github.com/anytizer/dto.php/",
-				"demo": "",
-				"buy": "",
-				"donate": "",
-				"learn": "",
-			},
-		},
-		{
-			"name": "pluralizer.php",
-			"description": "",
-			"completed": false,
-			"links": {
-				"desc": "projects/pluralizer.php/desc.html",
-				"source": "https://github.com/anytizer/pluralizer.php/",
-				"demo": "",
-				"buy": "",
-				"donate": "",
-				"learn": "",
-			},
-		},
-		{
-			"name": "capitalizer.php",
-			"description": "",
-			"completed": false,
-			"links": {
-				"desc": "projects/capitalizer.php/desc.html",
-				"source": "https://github.com/anytizer/capitalizer.php/",
-				"demo": "",
-				"buy": "",
-				"donate": "",
-				"learn": "",
-			},
-		},
-		{
-			"name": "Hosted Content Importer",
-			"description": "",
-			"completed": false,
-			"links": {
-				"desc": "projects/hosted-content-importer.wp/desc.html",
-				"source": "https://github.com/anytizer/hosted-content-importer.wp/",
-				"demo": "",
-				"buy": "",
-				"donate": "",
-				"learn": "",
-			},
-		},
-		{
-			"name": "phpinfo.wp",
-			"description": "",
-			"completed": false,
-			"links": {
-				"desc": "projects/phpinfo.wp/desc.html",
-				"source": "https://github.com/anytizer/phpinfo.wp/",
-				"demo": "",
-				"buy": "",
-				"donate": "",
-				"learn": "",
-			},
-		},
-	];
-	
-	/**
-	 * Description could be a very complex HTML to handwrite within json.
-	 * Fetches descriptions externally
-	 */
-	angular.forEach($scope.projects, function(project, key){
-		$http({
-			method : "GET",
-			url : project.links.desc
-		}).then(function(response) {
-			project.description = response.data;
-		}, function(response) {
-			// error
-			project.description = "Description not found.";
-		});
-	}, null);
+    $scope.projects = [];
+    $http({
+        method : "GET",
+        url : "projects.json"
+    }).then(function(response) {
+        $scope.projects = response.data;
+        /**
+         * Description could be a very complex HTML to handwrite within json.
+         * Fetches descriptions externally
+         */
+        angular.forEach($scope.projects, function(project, key){
+            $http({
+                method : "GET",
+                url : project.links.desc
+            }).then(function(response) {
+                project.description = response.data;
+            }, function(response) {
+                // error
+                project.description = "Description not found.";
+            });
+        }, null);
+    }, function(response) {
+        // error
+    });
 });
 
 /**
@@ -157,3 +63,26 @@ projectsApp.run(function($rootScope, $anchorScroll){
         $anchorScroll();
     });
 });
+
+/**
+ * <div scroll-directive="">...</div>
+ */
+/*
+projectsApp.directive("scrollDirective", function($window) {
+	return {
+		link: function (scope, element, attrs) {
+		  $window = angular.element($window);
+		  $window.on("scroll", function() {
+			  console.log("scrolling to: "+$window[0].scrollY);
+
+			  if($window[0].scrollY > 200)
+			  {
+				  console.log("Stay on top, apply css.")
+			  }
+
+			  //console.log($window[0].scrollY);
+			});
+		},
+	  };
+});
+*/
