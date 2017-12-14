@@ -3,6 +3,7 @@
     "name": "Gallery.HTML",
     "description": "",
     "complete": false,
+    "tags": ["html", "css", "mobile"],
     "links": {
       "desc": "projects/gallery.html/desc.html",
       "source": "",
@@ -17,6 +18,7 @@
     "name": "Cropnail.php",
     "description": "",
     "complete": true,
+    "tags": ["cli", "php", "gd"],
     "links": {
       "desc": "projects/cropnail.php/desc.html",
       "source": "https://github.com/anytizer/cropnail.php/",
@@ -31,6 +33,7 @@
     "name": "APIUnit.phpunit",
     "description": "",
     "complete": true,
+    "tags": ["phpunit", "api", "unit testing"],
     "links": {
       "desc": "projects/apiunit.phpunit/desc.html",
       "source": "https://github.com/anytizer/apiunit.phpunit/",
@@ -45,6 +48,7 @@
     "name": "DTO.php",
     "description": "",
     "complete": false,
+    "tags": ["mysql", "php", "code generation", "CRUD"],
     "links": {
       "desc": "projects/dto.php/desc.html",
       "source": "https://github.com/anytizer/dto.php/",
@@ -59,6 +63,7 @@
     "name": "pluralizer.php",
     "description": "",
     "complete": true,
+    "tags": ["php", "grammar"],
     "links": {
       "desc": "projects/pluralizer.php/desc.html",
       "source": "https://github.com/anytizer/pluralizer.php/",
@@ -73,6 +78,7 @@
     "name": "capitalizer.php",
     "description": "",
     "complete": true,
+    "tags": ["php", "grammar"],
     "links": {
       "desc": "projects/capitalizer.php/desc.html",
       "source": "https://github.com/anytizer/capitalizer.php/",
@@ -87,6 +93,7 @@
     "name": "Hosted Content Importer",
     "description": "",
     "complete": true,
+    "tags": ["wordpress", "plugin", "content embed"],
     "links": {
       "desc": "projects/hosted-content-importer.wp/desc.html",
       "source": "https://github.com/anytizer/hosted-content-importer.wp/",
@@ -101,11 +108,27 @@
     "name": "phpinfo.wp",
     "description": "",
     "complete": true,
+    "tags": ["wordpress", "phpinfo"],
     "links": {
       "desc": "projects/phpinfo.wp/desc.html",
       "source": "https://github.com/anytizer/phpinfo.wp/",
       "demo": "",
       "download": "https://wordpress.org/plugins/php-info-wp/",
+      "buy": "",
+      "donate": "",
+      "learn": ""
+    }
+  },
+  {
+    "name": "anytizer.net",
+    "description": "",
+    "complete": true,
+    "tags": ["c#", "input", "validation"],
+    "links": {
+      "desc": "projects/anytizer.net/desc.html",
+      "source": "https://github.com/anytizer/anytizer.net",
+      "demo": "",
+      "download": "",
       "buy": "",
       "donate": "",
       "learn": ""

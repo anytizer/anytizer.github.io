@@ -30,9 +30,10 @@
             <p ng-hide="true">I consider receiving your <strong>donations</strong> if it helped you in some ways, that keeps the development of these projects on-going.</p>
             <div><a class="w3-btn w3-deep-purple" ng-click="understood(true)">Too long, skip</a></div>
             <h4>About Project Status</h4>
+            <p>For each projects, you will see a status marking with the following meanings.</p>
             <div class="w3-khaki w3-card w3-panel">
                 <h5>Completed</h5>
-                <div class="w3-padding">Marked as <strong>completed</strong>. It means you can view the source code, and may be use the project for your purpose. Project may be still in active development.</div>
+                <div class="w3-padding">Marked as <strong>completed</strong>. It means you can view the source code, or the demo. It does not mean the project is finalized for production or turn-key. You may use the project's available source code for your own purposes. However, the project may be still in active development.</div>
             </div>
             <div class="w3-khaki w3-card w3-panel">
                 <h5>Incomplete</h5>
@@ -48,6 +49,9 @@
         <div class="w3-card" ng-repeat="project in projects">
             <h2 class="w3-light-grey w3-padding">{{project.name}}</h2>
             <div class="description w3-padding" ng-bind-html="project.description"></div>
+            <div ng-show="project.tags.length>=1">
+                <a ng-repeat="tag in project.tags" class="w3-btn w3-light-grey w3-margin">{{tag}}</a>
+            </div>
             <div class="menus">
                 <a ng-show="show.donate && project.links.donate!=''" class="w3-btn w3-purple w3-hover-deep-purple" href="{{project.links.donate}}">Donate</a>
                 <a ng-show="show.source && project.links.source!=''" class="w3-btn w3-purple w3-hover-deep-purple" href="{{project.links.source}}">Source Code</a>

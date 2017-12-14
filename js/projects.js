@@ -36,11 +36,15 @@ projectsApp.service("understood", function() {
 projectsApp.controller("HeaderController", function($window, $rootScope, $scope, understood){
     /**
      * Did the visitor understand the project limitations?
+     * Reads the data from persisting provider
      */
-    //$scope.u = understood.read(); // @todo Read from persisting data
-    $rootScope.u = understood.read(); // @todo Read from persisting data
-    $scope.understood = function(status){
+    $rootScope.u = understood.read(); // 
+    $rootScope.understood = function(status){
         $rootScope.u = understood.save(status);
+        
+        /**
+         * Jumpt to the top
+         */
         $window.scrollTo(0, 0);
     };
 });
