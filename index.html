@@ -16,25 +16,41 @@
   <script src="js/projects.js"></script>
 </head>
 <body class="w3-indigo" ng-app="projectsApp">
-  <div class="wrapper">
-      <h1>Anytizer Projects</h1>
-      <div class="w3-yellow w3-padding">
+  <div class="wrapper" ng-controller="HeaderController">
+      <h1 class="w3-padding">Anytizer Projects</h1>
+      <div class="w3-yellow w3-container w3-padding" ng-show="!understood">
           <p>
             This is an attempt to document my open sourced projects so that you can make use of them.
-            Each project required several hours to bring it up.
-            I consider receiving your donations if it helped you in some ways.
+            Each project required several hours of <strong>research, analysis, development, debugging and maintenance</strong> to bring it up.
+            Not all the projects in my repository are fully documented and listed here.
+            Some projects are work in progress, and deliver only specfic functionalities.
+            I consider receiving your <strong>donations</strong> if it helped you in some ways.
           </p>
+          <div class="w3-padding">
+            <h4>About Project Status</h4>
+            <h5>Completed</h5>
+            <div>Marked as <strong>completed</strong>. It means you can view the source code, and may be use the project for your purpose. Project may be still in active development.</div>
+            <h5>Incomplete</h5>
+            <div>Marked as <strong>incomplete</strong>. Source code may be private or non-functional to use immediately. If the description or the intent of the project is attractive to you, please contact me for further details.</div>
+          </div>
+          <p><a class="w3-btn w3-deep-purple w3-right" ng-click="understood=true">Ok, I understand.</a></p>
+      </div>
+      <div class="w3-yellow w3-container w3-padding" ng-show="understood">
+        <p>Refresh this page to reload the information on project status being <strong>complete</strong> and <strong>incomplete</strong>.</p>
       </div>
       <div class="w3-white w3-padding" ng-controller="ProjectsController">
 		<div class="w3-card" ng-repeat="project in projects">
-          <h2 class="w3-light-grey w3-padding">{{project.name}}</h2>
+          <h1 class="w3-light-grey w3-padding">{{project.name}}</h1>
           <div class="description w3-padding" ng-bind-html="project.description"></div>
           <div class="menus">
-              <a ng-show="show.donate" class="w3-btn w3-indigo w3-hover-purple" href="{{project.links.donate}}">Donate</a>
-              <a ng-show="show.demo" class="w3-btn w3-deep-purple w3-hover-purple" href="{{project.links.source}}">Demo</a>
-              <a ng-show="show.source" class="w3-btn w3-indigo w3-hover-purple" href="{{project.links.source}}">Source Code</a>
-              <a ng-show="show.buy" class="w3-btn w3-indigo w3-hover-purple" href="{{project.links.buy}}" ng-hide="true">Buy</a>
-              <a ng-show="show.learn" class="w3-btn w3-deep-purple w3-hover-purple" href="{{project.links.learn}}" ng-hide="true">Learn</a>
+              <a ng-show="show.donate && project.links.donate!=''" class="w3-btn w3-indigo w3-hover-purple" href="{{project.links.donate}}">Donate</a>
+              <a ng-show="show.demo && project.links.demo!=''" class="w3-btn w3-deep-purple w3-hover-purple" href="{{project.links.demo}}">Demo</a>
+              <a ng-show="show.source && project.links.source!=''" class="w3-btn w3-indigo w3-hover-purple" href="{{project.links.source}}">Source Code</a>
+              <a ng-show="show.buy && project.links.buy!=''" class="w3-btn w3-indigo w3-hover-purple" href="{{project.links.buy}}" ng-hide="true">Buy</a>
+              <a ng-show="show.learn && project.links.learn!=''" class="w3-btn w3-deep-purple w3-hover-purple" href="{{project.links.learn}}" ng-hide="true">Learn</a>
+          </div>
+          <div class="w3-padding">
+            <h4>Status: <strong ng-show="project.completed==true">completed</strong><strong ng-show="project.completed!=true">incomplete</strong></h4>
           </div>
         </div>
     </div>

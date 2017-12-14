@@ -8,13 +8,11 @@
 
 .wrapper
 {
+    /**
+     * 540px @dpr 1 can fit in 360px mobile display @dpr 1.5.
+     */
     max-width: 540px;
     margin: 0 auto;
-    
-    h1
-    {
-        text-align: center;
-    }
 }
 
 img.icon
@@ -50,5 +48,13 @@ p
         width: 125px;
         overflow: hidden;
         display: inline-block;
+    }
+}
+
+code
+{
+    p
+    {
+        border-bottom: 1px dotted #CCCCCC;
     }
 }

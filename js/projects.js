@@ -1,5 +1,12 @@
 var projectsApp = angular.module("projectsApp", ["ngSanitize"]);
 
+projectsApp.controller("HeaderController", function($scope){
+	/**
+	 * Did the visitor understand the project limitations?
+	 */
+	$scope.understood = false;
+});
+
 /**
  * @todo: Read HTML descriptions from file
  */
@@ -10,9 +17,9 @@ projectsApp.controller("ProjectsController", function($scope, $http) {
 	$scope.show = {
 		"source": true,
 		"demo": true,
-		"buy": false,
+		"buy": true,
 		"donate": true,
-		"learn": false,
+		"learn": true,
 	};
 	
 	/**
@@ -22,10 +29,11 @@ projectsApp.controller("ProjectsController", function($scope, $http) {
 		{
 			"name": "Gallery.HTML",
 			"description": "",
+			"completed": false,
 			"links": {
 				"desc": "projects/gallery.html/desc.html",
-				"source": "https://github.com/anytizer/gallery.html",
-				"demo": "",
+				"source": "https://github.com/anytizer/gallery.html/",
+				"demo": "https://anytizer.github.io/demo/gallery.html/",
 				"buy": "",
 				"donate": "",
 				"learn": "",
@@ -34,9 +42,10 @@ projectsApp.controller("ProjectsController", function($scope, $http) {
 		{
 			"name": "Cropnail.php",
 			"description": "",
+			"completed": true,
 			"links": {
 				"desc": "projects/cropnail.php/desc.html",
-				"source": "https://github.com/anytizer/cropnail.php",
+				"source": "https://github.com/anytizer/cropnail.php/",
 				"demo": "",
 				"buy": "",
 				"donate": "",
@@ -46,9 +55,10 @@ projectsApp.controller("ProjectsController", function($scope, $http) {
 		{
 			"name": "APIUnit.phpunit",
 			"description": "",
+			"completed": true,
 			"links": {
 				"desc": "projects/apiunit.phpunit/desc.html",
-				"source": "https://github.com/anytizer/apiunit.phpunit",
+				"source": "https://github.com/anytizer/apiunit.phpunit/",
 				"demo": "",
 				"buy": "",
 				"donate": "",
@@ -58,9 +68,10 @@ projectsApp.controller("ProjectsController", function($scope, $http) {
 		{
 			"name": "DTO.php",
 			"description": "",
+			"completed": false,
 			"links": {
 				"desc": "projects/dto.php/desc.html",
-				"source": "https://github.com/anytizer/dto.phpunit",
+				"source": "https://github.com/anytizer/dto.php/",
 				"demo": "",
 				"buy": "",
 				"donate": "",
@@ -84,4 +95,13 @@ projectsApp.controller("ProjectsController", function($scope, $http) {
 			project.description = "Description not found.";
 		});
 	}, null);
+});
+
+/**
+ * Scroll the page to the top right after a link is clicked on
+ */
+projectsApp.run(function($rootScope, $anchorScroll){
+    $rootScope.$on("$locationChangeSuccess", function(){
+        $anchorScroll();
+    });
 });
