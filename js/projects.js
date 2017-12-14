@@ -75,7 +75,7 @@ projectsApp.controller("ProjectsController", function($scope, $http) {
 	 */
 	angular.forEach($scope.projects, function(project, key){
 		$http({
-			method : "POST",
+			method : "GET",
 			url : project.links.desc
 		}).then(function(response) {
 			project.description = response.data;
