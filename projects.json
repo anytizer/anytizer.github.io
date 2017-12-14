@@ -15,7 +15,7 @@
     }
   },
   {
-    "name": "Cropnail.php",
+    "name": "cropnail.php",
     "description": "",
     "complete": true,
     "tags": ["cli", "php", "gd"],

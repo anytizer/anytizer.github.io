@@ -20,4 +20,5 @@ This website is made with following technologies:
 
  * [W3CSS](https://www.w3schools.com/w3css/)
  * [AngularJS](https://angularjs.org/)
+ * [JSON](https://www.json.org/)
  
