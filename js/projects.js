@@ -1,56 +1,72 @@
 var projectsApp = angular.module("projectsApp", ["ngSanitize"]);
 
 projectsApp.service("understood", function() {
-	var item = "understood";
-	return {
-		"read": function(item){
-			data = localStorage.getItem(item);
-			return data;
-		},
-		"save": function(item, value){
-			localStorage.setItem(item, value);
-			return value;
-		},
-	};
+    /**
+     * Save a boolean value only.
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+	 * @see http://dev-test.nemikor.com/web-storage/support-test/
+	 * @see https://www.w3schools.com/html/html5_webstorage.asp
+     */
+    var item = "understood";
+    return {
+        "read": function(){
+            var data = localStorage.getItem(item);
+            data = (data === true || data === "true");
+            return data;
+        },
+        "save": function(value){
+            var data = (value === true);
+            if(data)
+            {
+                localStorage.setItem(item, data);
+            }
+            else
+            {
+                /**
+                 * Do not leave a trace
+                 */
+                localStorage.removeItem(item);
+            }
+
+            return data;
+        }
+    };
 });
 
 projectsApp.controller("HeaderController", function($window, $rootScope, $scope, understood){
-	/**
-	 * Did the visitor understand the project limitations?
-	 */
-	$scope.u = understood.read("understood") == true || understood.read("understood") == "true"; // @todo Read from persisting data
-	$scope.understood = function(d){
-		$scope.u = understood.save("understood", d==true);
-		$window.scrollTo(0, 0);
-	}
+    /**
+     * Did the visitor understand the project limitations?
+     */
+    //$scope.u = understood.read(); // @todo Read from persisting data
+    $rootScope.u = understood.read(); // @todo Read from persisting data
+    $scope.understood = function(status){
+        $rootScope.u = understood.save(status);
+        $window.scrollTo(0, 0);
+    };
+});
 
-	$rootScope.$broadcast("ConstraintsUnderstood", $scope.u);
-	$scope.$emit("ConstraintsUnderstood", $scope.u);
+projectsApp.controller("FooterController", function($window, $rootScope, $scope){
 });
 
 /**
  * @todo: Read HTML descriptions from file
  */
-projectsApp.controller("ProjectsController", function($scope, $http) {
-	$scope.$on("ConstraintsUnderstood", function(event, data) {
-		$scope.u = data;
-	});
-	
-	/**
-	 * @todo If small devices detected: restrict the menus
-	 */
-	$scope.show = {
-		"source": true,
-		"demo": true,
-		"download": true,
-		"buy": true,
-		"donate": true,
-		"learn": true
-	};
-	
-	/**
-	 * List of useful projects
-	 */
+projectsApp.controller("ProjectsController", function($rootScope, $scope, $http) {
+    /**
+     * @todo If small devices detected: restrict the menus
+     */
+    $scope.show = {
+        "source": true,
+        "demo": true,
+        "download": true,
+        "buy": true,
+        "donate": true,
+        "learn": true
+    };
+
+    /**
+     * List of useful projects
+     */
     $scope.projects = [];
     $http({
         method : "GET",
@@ -58,7 +74,7 @@ projectsApp.controller("ProjectsController", function($scope, $http) {
     }).then(function(response) {
         var projects = response.data;
         /**
-         * Description could be a very complex HTML to handwrite within json.
+         * Description could be a very complex HTML to hand-write within json.
          * Fetches descriptions externally
          */
         angular.forEach(projects, function(project, key){
@@ -71,8 +87,8 @@ projectsApp.controller("ProjectsController", function($scope, $http) {
                 // error
                 project.description = "Description not found.";
             });
-		}, null);
-		$scope.projects = projects;
+        }, null);
+        $scope.projects = projects;
     }, function(response) {
         // error
     });
@@ -83,8 +99,8 @@ projectsApp.controller("ProjectsController", function($scope, $http) {
  */
 projectsApp.run(function($rootScope, $anchorScroll){
     $rootScope.$on("$locationChangeSuccess", function(){
-		//$anchorScroll();
-		window.scrollTo(0, 0);
+        //$anchorScroll();
+        window.scrollTo(0, 0);
     });
 });
 

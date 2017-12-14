@@ -16,33 +16,34 @@
     <script src="js/projects.js"></script>
 </head>
 <body class="w3-indigo" ng-app="projectsApp" scroll-directive="">
-<div class="wrapper" ng-controller="HeaderController">
-    <h1 class="w3-padding w3-indigo">Anytizer Projects</h1>
-    <div class="w3-yellow w3-container w3-padding" ng-show="!u">
-        <p>
-            This is collection of documents to my open sourced projects.
-            This is for demonstration and educational purpose.
-            Each project required several hours of <strong>research, analysis, development, debugging and maintenance</strong> to bring it up.
-            Not all the projects in my repository are fully documented and listed here.
-            Some projects are work in progress, and deliver only specfic functionalities.
-        </p>
-        <p>I consider receiving your <strong>donations</strong> if it helped you in some ways, that keeps the development of these projects on-going.</p>
-        <h4>About Project Status</h4>
-        <div class="w3-card w3-panel">
-            <h5>Completed</h5>
-            <div>Marked as <strong>completed</strong>. It means you can view the source code, and may be use the project for your purpose. Project may be still in active development.</div>
+<div class="wrapper">
+    <div ng-controller="HeaderController">
+        <h1 class="w3-padding w3-indigo">Anytizer Projects</h1>
+        <div class="w3-yellow w3-container w3-padding" ng-show="!u">
+            <p>
+                This is collection of documents to my open sourced projects.
+                This is for demonstration and educational purpose.
+                Each project required several hours of <strong>research, analysis, development, debugging and maintenance</strong> to bring it up.
+                Not all the projects in my repository are fully documented and listed here.
+                Some projects are work in progress, and deliver only specific functionalities.
+            </p>
+            <p ng-hide="true">I consider receiving your <strong>donations</strong> if it helped you in some ways, that keeps the development of these projects on-going.</p>
+            <h4>About Project Status</h4>
+            <div class="w3-khaki w3-card w3-panel">
+                <h5>Completed</h5>
+                <div class="w3-padding">Marked as <strong>completed</strong>. It means you can view the source code, and may be use the project for your purpose. Project may be still in active development.</div>
+            </div>
+            <div class="w3-khaki w3-card w3-panel">
+                <h5>Incomplete</h5>
+                <div class="w3-padding">Marked as <strong>incomplete</strong>. Source code may be private or non-functional to use immediately. If the description or the intent of the project is attractive to you, please contact me for further details.</div>
+            </div>
+            <div><a class="w3-btn w3-deep-purple w3-right" ng-click="understood(true)">Ok, I understand.</a></div>
         </div>
-        <div class="w3-card w3-panel">
-            <h5>Incomplete</h5>
-            <div>Marked as <strong>incomplete</strong>. Source code may be private or non-functional to use immediately. If the description or the intent of the project is attractive to you, please contact me for further details.</div>
+        <div class="w3-yellow w3-container w3-padding" ng-show="u">
+            <p>When done, <a href="#" ng-click="understood(false)">please logout</a>.</p>
         </div>
-        <div class="w3-panel"><a class="w3-btn w3-deep-purple w3-right" ng-click="understood(true)">Ok, I understand.</a></div>
-        data: {{u}}
     </div>
-    <div class="w3-yellow w3-container w3-padding" ng-show="u">
-        <p>Refresh this page to reload the information on project status being <strong>complete</strong> and <strong>incomplete</strong>.</p>
-    </div>
-    <div class="w3-white w3-padding" ng-show="u" ng-controller="ProjectsController">
+    <div class="w3-white w3-padding" ng-controller="ProjectsController" ng-show="u">
         <div class="w3-card" ng-repeat="project in projects">
             <h2 class="w3-light-grey w3-padding">{{project.name}}</h2>
             <div class="description w3-padding" ng-bind-html="project.description"></div>
@@ -59,8 +60,12 @@
             </div>
         </div>
     </div>
-    <div class="w3-padding">
-        <p>&copy; Anytizer. Mostly open soruce projects. See <a href="https://github.com/anytizer?tab=repositories">Complete List</a> of projects.</p>
+    <div class="w3-padding" ng-controller="FooterController">
+        <p>
+            &copy; Anytizer.
+            Mostly open source projects.
+            See <a href="https://github.com/anytizer?tab=repositories">Complete List</a> of projects.
+        </p>
     </div>
 </div>
 </body>
