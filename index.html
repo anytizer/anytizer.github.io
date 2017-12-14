@@ -21,12 +21,10 @@
         <h1 class="w3-padding w3-indigo">Anytizer Projects</h1>
         <div class="w3-yellow w3-container w3-padding" ng-show="!u">
             <p>
-                Welcome to my collection of open sourced projects.
-                Each project required several hours of <strong>research, analysis, development, debugging and maintenance</strong> to bring it up.
-                Some projects listed here are work in progress, and deliver only specific functionalities.
+                Each project listed here required several hours of <strong>research, analysis, development, debugging, maintenance and documentation</strong> to bring it up.
             </p>
             <p ng-hide="true">I consider receiving your <strong>donations</strong> if it helped you in some ways, that keeps the development of these projects on-going.</p>
-            <div><a class="w3-btn w3-deep-purple" ng-click="understood(true)">Too long, skip</a></div>
+            <div><a class="w3-btn w3-deep-purple" ng-click="understood(true)">Too long, skip this.</a></div>
             <h4>About Project Status</h4>
             <p>For each projects, you will see a status marking with the following meanings.</p>
             <div class="w3-khaki w3-card w3-panel">
@@ -45,12 +43,12 @@
     </div>
     <div class="w3-white w3-padding" ng-controller="ProjectsController" ng-show="u">
         <div class="w3-card" ng-repeat="project in projects">
-            <h2 class="w3-light-grey w3-padding">{{project.name}}</h2>
+            <h2 class="w3-black w3-padding">{{project.name}}</h2>
             <div class="description w3-padding" ng-bind-html="project.description"></div>
             <div ng-show="project.tags.length>=1">
                 <a ng-repeat="tag in project.tags" class="w3-btn w3-light-grey w3-margin">{{tag}}</a>
             </div>
-            <div class="menus">
+            <div class="menus w3-light-grey">
                 <a ng-show="show.donate && project.links.donate!=''" class="w3-btn w3-purple w3-hover-deep-purple" href="{{project.links.donate}}">Donate</a>
                 <a ng-show="show.source && project.links.source!=''" class="w3-btn w3-purple w3-hover-deep-purple" href="{{project.links.source}}">Source Code</a>
                 <a ng-show="show.demo && project.links.demo!=''" class="w3-btn w3-purple w3-hover-deep-purple" href="{{project.links.demo}}">Demo</a>

@@ -90,7 +90,7 @@
     }
   },
   {
-    "name": "Hosted Content Importer",
+    "name": "Hosted Content Importer (HCI)",
     "description": "",
     "complete": true,
     "tags": ["wordpress", "plugin", "content embed"],
