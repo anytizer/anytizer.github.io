@@ -75,11 +75,15 @@ p
 
 code
 {
+    padding: 10px;
     display: block;
     margin-bottom: 15px;
+    background-color: #EEE;
     
     p
     {
         border-bottom: 1px dotted #CCCCCC;
+        padding-bottom: 0px;
+        color: #000;
     }
 }
