@@ -1,0 +1,85 @@
+*
+{
+	font-family: verdana;
+	font-size: 14px;
+}
+
+.wrapper
+{
+	min-width: 800px;
+	margin: 0px auto;
+}
+
+li
+{
+	cursor: pointer;
+	display: inline-block;
+	list-style: none;
+	padding: 5px;
+	width: 250px;
+	height: 30px;
+	margin: 0px;
+	overflow: hidden;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+li:hover
+{
+	background-color: aquamarine;
+	border-bottom: 1px solid #666666;
+}
+
+.fa
+{
+	color: blue;
+}
+
+h1
+{
+	clear: both;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+input[type="text"]
+{
+	padding: 6px;
+	height: 40px;
+}
+
+span.clear
+{
+	cursor: pointer;
+}
+
+
+.picker
+{
+	top: 0;
+	width: 100%;
+	position: fixed;
+	z-index: 999;
+	clear: both;
+	max-height: 140px;
+	overflow: hidden;
+}
+
+/**
+ * Uncover area overlapped with picker header
+ */
+.placeholder
+{
+	margin-top: 140px;
+}
+
+input#search
+{
+	background-color: #EEEEEE;
+}
+
+input#global
+{
+	width: 400px;
+	background-color: rgb(230, 221, 97);
+	border: 1px solid black;
+}
