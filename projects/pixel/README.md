@@ -1,0 +1,1 @@
+Pixel - Image placeholder
